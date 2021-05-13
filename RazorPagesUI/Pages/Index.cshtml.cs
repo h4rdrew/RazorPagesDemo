@@ -17,9 +17,14 @@ namespace RazorPagesUI.Pages
             _logger = logger;
         }
 
+        [BindProperty(SupportsGet = true)]
+        public string City { get; set; }
         public void OnGet()
         {
-
+            if (string.IsNullOrWhiteSpace(City))
+            {
+                City = "The Web";
+            }
         }
     }
 }
